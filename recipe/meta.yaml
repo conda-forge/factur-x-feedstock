@@ -1,13 +1,13 @@
 {% set name = "factur-x" %}
-{% set version = "3.1" %}
+{% set version = "3.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/factur-x-{{ version }}.tar.gz
-  sha256: b8672e2046ff752ba827d1b5dff57db1b7e4e687b498276e8e8fe21f841e0702
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 47d58dec20c045ef4cee441a6df5c47640dfe1fcc714ba63796246f396252467
 
 build:
   noarch: python
