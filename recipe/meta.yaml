@@ -1,5 +1,5 @@
 {% set name = "factur-x" %}
-{% set version = "3.15" %}
+{% set version = "3.16" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 05796a386fae63a7207ddc7c6ce4bf62579554745e6275a468c714ad11310146
+  sha256: 04cc309325d928880911b8e1652890d360e704e87173aeb2b519d7dbbeaa0aa5
 
 build:
   noarch: python
