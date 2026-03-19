@@ -1,5 +1,5 @@
 {% set name = "factur-x" %}
-{% set version = "3.16" %}
+{% set version = "4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 04cc309325d928880911b8e1652890d360e704e87173aeb2b519d7dbbeaa0aa5
+  sha256: 31b2d85afe70d2a1dfe4378009fab848149c66ac3311d46a9bf84e0fdc76aafc
 
 build:
   noarch: python
@@ -22,6 +22,7 @@ requirements:
     - hatchling
     - hatch-requirements-txt
   run:
+    - saxonche
     - python >={{ python_min }}
     - pypdf >=5.3.0
     - lxml
