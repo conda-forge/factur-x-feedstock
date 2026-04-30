@@ -1,0 +1,48 @@
+schema_version: 1
+
+context:
+  name: factur-x
+  version: "3.16"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  sha256: 04cc309325d928880911b8e1652890d360e704e87173aeb2b519d7dbbeaa0aa5
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+    - hatchling
+    - hatch-requirements-txt
+  run:
+    - python >=${{ python_min }}
+    - pypdf >=5.3.0
+    - lxml
+    - setuptools
+
+tests:
+  - python:
+      imports:
+        - facturx
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: "Factur-X and Order-X: electronic invoicing and ordering standards"
+  license: BSD-3-Clause
+  license_file: LICENSE
+  homepage: https://github.com/akretion/factur-x
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
